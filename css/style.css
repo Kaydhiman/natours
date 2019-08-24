@@ -1,0 +1,123 @@
+@font-face {
+  font-family: "Lato";
+  src: url("../font/lato/Lato-Regular.ttf");
+  font-weight: 400; }
+
+html {
+  font-size: 62.5%; }
+
+*, ::after, ::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: "Lato", sans-sarif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 5rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation: moveToRight 1s ease-in-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    letter-spacing: 1.4rem;
+    animation: moveToLeft 1s ease-in-out; }
+
+.btn {
+  padding: 1.5rem 3rem;
+  text-transform: uppercase;
+  border-radius: 5rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.5s all;
+  position: relative; }
+  .btn::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 50px;
+    transform: scale(1.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+    transition: 0.5s all; }
+  .btn:hover::after {
+    transform: scale(1);
+    opacity: 1; }
+  .btn--white:link, .btn--white:visited {
+    background: #fff;
+    color: #777; }
+  .btn:hover {
+    box-shadow: 0px 0.7rem 1rem rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.5rem); }
+  .btn:active {
+    box-shadow: 0px 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.3rem); }
+  .btn--animated {
+    animation: moveToTop 0.5s ease-in-out 0.75s;
+    animation-fill-mode: backwards; }
+
+.header {
+  position: relative;
+  height: 95vh;
+  /* min-height: 600px; */
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-position: top center;
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%); }
+  .header_logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header_logo-box .logo {
+    height: 3.5rem; }
+  .header_text-box {
+    position: absolute;
+    width: 100%;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    backface-visibility: hidden; }
+
+@keyframes moveToRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveToLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveToTop {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }

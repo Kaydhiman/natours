@@ -1,0 +1,16 @@
+{
+  "name": "starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^4.12.0"
+  },
+  "scripts": {
+    "start": "node-sass sass/style.scss css/style.css -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
