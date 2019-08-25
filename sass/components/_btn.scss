@@ -43,3 +43,12 @@
         animation-fill-mode: backwards;
     }
 }
+
+.btn-text{
+    display: inline-block;
+    background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+    color: transparent;
+    -webkit-background-clip: text;
+    border-bottom: 1px solid $color-primary-light;
+    padding: .5rem 0;
+}
