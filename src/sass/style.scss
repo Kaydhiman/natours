@@ -1,0 +1,21 @@
+//UTILITIES
+@import 'utilities/variables';
+@import 'utilities/animations';
+@import 'utilities/utilities';
+
+//COMPONENTS
+@import 'components/btn';
+@import 'components/mixins';
+@import 'components/composition';
+@import 'components/card';
+
+//BASE
+@import 'base/typography';
+@import 'base/base';
+
+//LAYOUT
+@import 'layout/header';
+@import 'layout/grid';
+
+//PAGES
+@import 'pages/home';
