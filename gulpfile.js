@@ -4,35 +4,65 @@ const sass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
 
 
-// create task for copy files
-task('copyfiles', function (){
-    src('src/*.html')
+const PATH = {
+    HTML: 'src/**/*.html',
+    img : 'src/img/*',
+    font: 'src/font/**',
+    css : 'src/css/*',
+    scss: 'src/sass/**/*.scss'
+}
+
+
+function HTML(){
+    return src(PATH.HTML)
     .pipe(dest('dist/'));
-	src('src/img/*')
+};
+
+function img(){
+    return src(PATH.img)
     .pipe(dest('dist/img'));
-    src('src/font/**')
+}
+
+function font(){
+    return src(PATH.font)
     .pipe(dest('dist/font'));
-    src('src/css/*')
+}
+
+function css(){
+    return src(PATH.css)
     .pipe(dest('dist/css'));
-});
+}
 
-// create task for sass
-task('style', function (){
-	src('src/sass/*.scss')
+function scss(){
+	return src(PATH.scss)
 	.pipe(sass())
-	.pipe(dest('dist/css/'));
-});
+    .pipe(dest('dist/css/'));
+};
 
-task('watch', series('style', 'copyfiles'));
+function watcher(){
+    watch(PATH.scss, scss);
+    watch(PATH.HTML, HTML);
+    watch(PATH.img, img);
+    watch(PATH.css, css);
+    watch(PATH.font, font);
+}
+
+task('watch', series(watcher));
 
 // Static Server
 task('server', function() {
 
     browserSync.init({
-        server: "./dist"
+        server: "./dist",
+        port: 8000,
+        open: false,
+        watchOptions: {
+            ignoreInitial: true,
+            ignored: '*.txt'
+        },
+        files: ['./dist']
     });
-
 });
 
 // create default task
-task('default', parallel('copyfiles','watch','server') );
+exports.default = parallel('watch', 'server');
